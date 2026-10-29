@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5f0">
+  <title>Three from Prostokvashino</title>
+  <style>
+    @font-face {
+      font-family: "Medeo Sans";
+      src: url("./fonts/MedeoSansVariable.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
+    :root {
+      --paper: #f7f5f0;
+      --ink: #252823;
+      --muted: #6c7067;
+      --line: #deded5;
+      --accent: #45634d;
+      --video-bg: #e9e7e0;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-medeo-sans), "Medeo Sans", Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    main {
+      width: min(760px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 54px 0 42px;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--accent);
+      font: 600 12px/1.4 var(--font-medeo-sans), "Medeo Sans", Arial, sans-serif;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 620px;
+      margin: 0;
+      font-size: clamp(36px, 7vw, 58px);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -.035em;
+    }
+
+    .meta {
+      margin: 18px 0 30px;
+      color: var(--muted);
+      font: 14px/1.5 var(--font-medeo-sans), "Medeo Sans", Arial, sans-serif;
+    }
+
+    .rule {
+      height: 1px;
+      margin-bottom: 28px;
+      background: var(--line);
+    }
+
+    .description {
+      margin: 0;
+      font-size: clamp(17px, 2.4vw, 19px);
+      line-height: 1.85;
+    }
+
+    .video-section { margin-top: 38px; }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 25px;
+      font-weight: 500;
+      letter-spacing: -.02em;
+    }
+
+    .video-frame {
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--video-bg);
+    }
+
+    video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #222;
+    }
+
+    .video-placeholder {
+      padding: 24px;
+      color: var(--muted);
+      text-align: center;
+      font: 14px/1.6 var(--font-medeo-sans), "Medeo Sans", Arial, sans-serif;
+    }
+
+    .video-placeholder strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    footer {
+      margin-top: 42px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font: 12px/1.5 var(--font-medeo-sans), "Medeo Sans", Arial, sans-serif;
+    }
+
+    @media (max-width: 520px) {
+      main { padding-top: 36px; }
+      .meta { margin-bottom: 23px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Three from Prostokvashino</h1>
+    <div class="rule"></div>
+
+    <p class="description">Three from Prostokvashino is a 1978 Soviet animated film based on the 1974 children's book Uncle Fedya, His Dog, and His Cat by Eduard Uspensky. The main character is a six-year-old boy who is called "Uncle Fyodor", because he is very serious. After his parents refuse to let him keep the talking cat Matroskin, Uncle Fyodor leaves home. With the dog Sharik, the three set up a home in the country village Prostokvashino. There they have many adventures, some involving the local postman, Pechkin.</p>
+
+    <section class="video-section" aria-labelledby="video-title">
+      <h2 id="video-title">Watch the film</h2>
+      <div class="video-frame" id="video-container">
+        <div class="video-placeholder" id="video-placeholder">
+          <strong>Video will appear here</strong>
+          Add your video file to this folder and name it <code>video.mp4</code>.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // If video.mp4 exists next to this HTML file, show the built-in player.
+    const container = document.getElementById('video-container');
+    const placeholder = document.getElementById('video-placeholder');
+    const video = document.createElement('video');
+    video.controls = true;
+    video.playsInline = true;
+    video.preload = 'metadata';
+
+    const source = document.createElement('source');
+    source.src = 'video.mp4';
+    source.type = 'video/mp4';
+    video.appendChild(source);
+
+    video.addEventListener('loadedmetadata', () => {
+      container.replaceChildren(video);
+    });
+
+    video.addEventListener('error', () => {
+      // Keep the friendly placeholder visible until a valid video file is added.
+    });
+
+    // Attempt to load the expected local file. The placeholder remains if unavailable.
+    video.load();
+  </script>
+</body>
+</html>
