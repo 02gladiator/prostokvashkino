@@ -1,177 +1,204 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7f5f0">
-  <title>Three from Prostokvashino</title>
-  <style>
-    @font-face {
-      font-family: "Medeo Sans";
-      src: url("./fonts/MedeoSansVariable.woff2") format("woff2");
-      font-style: normal;
-      font-weight: 100 900;
-      font-display: swap;
-    }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#f7f5f0">
+    <title>Three from Prostokvashino</title>
+    <style>
+        :root {
+            --paper: #f7f5f0;
+            --ink: #252823;
+            --muted: #6c7067;
+            --line: #deded5;
+            --accent: #45634d;
+            --soft: #e8ece5
+        }
 
-    :root {
-      --paper: #f7f5f0;
-      --ink: #252823;
-      --muted: #6c7067;
-      --line: #deded5;
-      --accent: #45634d;
-      --video-bg: #e9e7e0;
-    }
+        @font-face {
+            font-family: 'Medeo Sans';
+            src: url('fonts/MedeoSansVariable.woff2') format('woff2');
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+        }
 
-    * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box
+        }
 
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--font-medeo-sans), "Medeo Sans", Arial, sans-serif;
-      line-height: 1.7;
-    }
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: 'Medeo Sans', Arial, sans-serif;
+            line-height: 1.7
+        }
 
-    main {
-      width: min(760px, calc(100% - 36px));
-      margin: 0 auto;
-      padding: 54px 0 42px;
-    }
+        main {
+            width: min(820px, calc(100% - 36px));
+            margin: 0 auto;
+            padding: 38px 0 48px
+        }
 
-    .eyebrow {
-      margin: 0 0 14px;
-      color: var(--accent);
-      font: 600 12px/1.4 var(--font-medeo-sans), "Medeo Sans", Arial, sans-serif;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
+        .cover {
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            border-radius: 14px;
+            background: #d8dfd5;
+            box-shadow: 0 14px 36px rgba(35, 43, 34, .13)
+        }
 
-    h1 {
-      max-width: 620px;
-      margin: 0;
-      font-size: clamp(36px, 7vw, 58px);
-      font-weight: 500;
-      line-height: 1.08;
-      letter-spacing: -.035em;
-    }
+        .cover img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center
+        }
 
-    .meta {
-      margin: 18px 0 30px;
-      color: var(--muted);
-      font: 14px/1.5 var(--font-medeo-sans), "Medeo Sans", Arial, sans-serif;
-    }
+        .eyebrow {
+            margin: 34px 0 12px;
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase
+        }
 
-    .rule {
-      height: 1px;
-      margin-bottom: 28px;
-      background: var(--line);
-    }
+        h1 {
+            margin: 0;
+            max-width: 700px;
+            font-size: clamp(36px, 7vw, 58px);
+            font-weight: 600;
+            line-height: 1.08;
+            letter-spacing: -.045em
+        }
 
-    .description {
-      margin: 0;
-      font-size: clamp(17px, 2.4vw, 19px);
-      line-height: 1.85;
-    }
+        .meta {
+            margin: 14px 0 28px;
+            color: var(--muted);
+            font-size: 14px
+        }
 
-    .video-section { margin-top: 38px; }
+        .rule {
+            height: 1px;
+            background: var(--line);
+            margin-bottom: 26px
+        }
 
-    h2 {
-      margin: 0 0 14px;
-      font-size: 25px;
-      font-weight: 500;
-      letter-spacing: -.02em;
-    }
+        .description {
+            margin: 0;
+            font-size: clamp(16px, 2.2vw, 18px);
+            line-height: 1.9
+        }
 
-    .video-frame {
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      aspect-ratio: 16 / 9;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: var(--video-bg);
-    }
+        .video-section {
+            margin-top: 38px
+        }
 
-    video {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      background: #222;
-    }
+        h2 {
+            margin: 0 0 14px;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -.025em
+        }
 
-    .video-placeholder {
-      padding: 24px;
-      color: var(--muted);
-      text-align: center;
-      font: 14px/1.6 var(--font-medeo-sans), "Medeo Sans", Arial, sans-serif;
-    }
+        .video-frame {
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--soft)
+        }
 
-    .video-placeholder strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--ink);
-      font-size: 15px;
-      font-weight: 600;
-    }
+        video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #171917
+        }
 
-    footer {
-      margin-top: 42px;
-      padding-top: 16px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font: 12px/1.5 var(--font-medeo-sans), "Medeo Sans", Arial, sans-serif;
-    }
+        .video-placeholder {
+            padding: 24px;
+            color: var(--muted);
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.7
+        }
 
-    @media (max-width: 520px) {
-      main { padding-top: 36px; }
-      .meta { margin-bottom: 23px; }
-    }
-  </style>
+        .video-placeholder strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--ink);
+            font-size: 15px
+        }
+
+        code {
+            padding: 2px 5px;
+            border-radius: 4px;
+            background: #e9e9e1;
+            font-size: .92em
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        @media (max-width: 520px) {
+            main {
+                padding-top: 18px
+            }
+
+            .cover {
+                border-radius: 9px
+            }
+
+            .eyebrow {
+                margin-top: 26px
+            }
+        }
+    </style>
 </head>
 <body>
-  <main>
+<main>
+    <p class="eyebrow">Soviet animation · 1978</p>
     <h1>Three from Prostokvashino</h1>
+    <div class="cover"><img src="assets/cover.png" alt="Characters from Three from Prostokvashino"></div>
+    <p class="meta">Based on a story by Eduard Uspensky</p>
     <div class="rule"></div>
-
-    <p class="description">Three from Prostokvashino is a 1978 Soviet animated film based on the 1974 children's book Uncle Fedya, His Dog, and His Cat by Eduard Uspensky. The main character is a six-year-old boy who is called "Uncle Fyodor", because he is very serious. After his parents refuse to let him keep the talking cat Matroskin, Uncle Fyodor leaves home. With the dog Sharik, the three set up a home in the country village Prostokvashino. There they have many adventures, some involving the local postman, Pechkin.</p>
-
-    <section class="video-section" aria-labelledby="video-title">
-      <h2 id="video-title">Watch the film</h2>
-      <div class="video-frame" id="video-container">
-        <div class="video-placeholder" id="video-placeholder">
-          <strong>Video will appear here</strong>
-          Add your video file to this folder and name it <code>video.mp4</code>.
+    <p class="description">Three from Prostokvashino is a 1978 Soviet animated film based on the 1974 children's book
+        Uncle Fedya, His Dog, and His Cat by Eduard Uspensky. The main character is a six-year-old boy who is called
+        "Uncle Fyodor", because he is very serious. After his parents refuse to let him keep the talking cat Matroskin,
+        Uncle Fyodor leaves home. With the dog Sharik, the three set up a home in the country village Prostokvashino.
+        There they have many adventures, some involving the local postman, Pechkin.</p>
+    <section class="video-section"><h2>Watch the film</h2>
+        <div class="video-frame" id="video-container">
+            <div class="video-placeholder"><strong>Video will appear here</strong>Add your video file to this folder and
+                name it <code>video.mp4</code>.
+            </div>
         </div>
-      </div>
     </section>
-  </main>
-
-  <script>
-    // If video.mp4 exists next to this HTML file, show the built-in player.
-    const container = document.getElementById('video-container');
-    const placeholder = document.getElementById('video-placeholder');
-    const video = document.createElement('video');
-    video.controls = true;
-    video.playsInline = true;
-    video.preload = 'metadata';
-
-    const source = document.createElement('source');
-    source.src = 'video.mp4';
-    source.type = 'video/mp4';
-    video.appendChild(source);
-
-    video.addEventListener('loadedmetadata', () => {
-      container.replaceChildren(video);
-    });
-
-    video.addEventListener('error', () => {
-      // Keep the friendly placeholder visible until a valid video file is added.
-    });
-
-    // Attempt to load the expected local file. The placeholder remains if unavailable.
-    video.load();
-  </script>
+    <footer>Three from Prostokvashino · 1978</footer>
+</main>
+<script>
+    const box = document.getElementById('video-container'), v = document.createElement('video');
+    v.controls = true;
+    v.playsInline = true;
+    v.preload = 'metadata';
+    const s = document.createElement('source');
+    s.src = './video.mp4';
+    s.type = 'video/mp4';
+    v.appendChild(s);
+    v.addEventListener('loadedmetadata', () => box.replaceChildren(v));
+    v.load();
+</script>
 </body>
 </html>
